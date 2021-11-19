@@ -22,6 +22,7 @@
 						<th>Nama Supplier</th>
 						<th>Supplier ID</th>
 						<th>Total Harga</th>
+						<th>Aksi</th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -42,6 +43,9 @@
 						'<td>' . $row['vendorName'] . '</td>' .
 						'<td>' . $row['vendorID'] . '</td>' .
 						'<td>' . $totalPrice . '</td>' .
+						'<td>
+							<button class="btn btn-primary btn-sm btn-edit-purchase" data-id="'. $row['purchaseID'] .'">Edit</button>
+						</td>' .
 					'</tr>';
 	}
 	
@@ -59,6 +63,7 @@
 							<th>Nama Supplier</th>
 							<th>Supplier ID</th>
 							<th>Total Harga</th>
+							<th>Aksi</th>
 						</tr>
 					</tfoot>
 				</table>';

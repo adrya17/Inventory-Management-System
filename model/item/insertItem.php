@@ -11,7 +11,8 @@
 		$itemNumber = htmlentities($_POST['itemDetailsItemNumber']);
 		$itemName = htmlentities($_POST['itemDetailsItemName']);
 		$discount = htmlentities($_POST['itemDetailsDiscount']);
-		$quantity = htmlentities($_POST['itemDetailsQuantity']);
+		// $quantity = htmlentities($_POST['itemDetailsQuantity']);
+		$quantity = 0;
 		$unitPrice = htmlentities($_POST['itemDetailsUnitPrice']);
 		$status = htmlentities($_POST['itemDetailsStatus']);
 		$description = htmlentities($_POST['itemDetailsDescription']);
@@ -22,14 +23,14 @@
 			// Sanitize item number
 			$itemNumber = filter_var($itemNumber, FILTER_SANITIZE_STRING);
 			
-			// Validate item quantity. It has to be a number
-			if(filter_var($quantity, FILTER_VALIDATE_INT) === 0 || filter_var($quantity, FILTER_VALIDATE_INT)){
-				// Valid quantity
-			} else {
-				// Quantity is not a valid number
-				echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button>Harap masukkan nomor yang valid untuk kuantitas</div>';
-				exit();
-			}
+			// // Validate item quantity. It has to be a number
+			// if(filter_var($quantity, FILTER_VALIDATE_INT) === 0 || filter_var($quantity, FILTER_VALIDATE_INT)){
+			// 	// Valid quantity
+			// } else {
+			// 	// Quantity is not a valid number
+			// 	echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button>Harap masukkan nomor yang valid untuk kuantitas</div>';
+			// 	exit();
+			// }
 			
 			// Validate unit price. It has to be a number or floating point value
 			if(filter_var($unitPrice, FILTER_VALIDATE_FLOAT) === 0.0 || filter_var($unitPrice, FILTER_VALIDATE_FLOAT)){

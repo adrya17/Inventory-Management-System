@@ -25,7 +25,6 @@
 			  <a class="nav-link" id="v-pills-customer-tab" data-toggle="pill" href="#v-pills-customer" role="tab" aria-controls="v-pills-customer" aria-selected="false">Data Pelanggan</a>
 			  <a class="nav-link" id="v-pills-purchase-tab" data-toggle="pill" href="#v-pills-purchase" role="tab" aria-controls="v-pills-purchase" aria-selected="false">Pembelian</a>
 			  <a class="nav-link" id="v-pills-sale-tab" data-toggle="pill" href="#v-pills-sale" role="tab" aria-controls="v-pills-sale" aria-selected="false">Penjualan</a>
-			  <a class="nav-link" id="v-pills-issue-tab" data-toggle="pill" href="#v-pills-issue" role="tab" aria-controls="v-pills-issue" aria-selected="false">Issue Item</a>
 			  <a class="nav-link" id="v-pills-search-tab" data-toggle="pill" href="#v-pills-search" role="tab" aria-controls="v-pills-search" aria-selected="false">Pencarian</a>
 			  <a class="nav-link" id="v-pills-reports-tab" data-toggle="pill" href="#v-pills-reports" role="tab" aria-controls="v-pills-reports" aria-selected="false">Laporan</a>
 			</div>
@@ -87,10 +86,10 @@
 								  <label for="itemDetailsDiscount">Diskon %</label>
 								  <input type="text" class="form-control" value="0" name="itemDetailsDiscount" id="itemDetailsDiscount">
 								</div>
-								<div class="form-group col-md-3">
+								<!-- <div class="form-group col-md-3">
 								  <label for="itemDetailsQuantity">Kuantitas<span class="requiredIcon">*</span></label>
 								  <input type="number" class="form-control" value="0" name="itemDetailsQuantity" id="itemDetailsQuantity">
-								</div>
+								</div> -->
 								<div class="form-group col-md-3">
 								  <label for="itemDetailsUnitPrice">Harga Unit<span class="requiredIcon">*</span></label>
 								  <input type="text" class="form-control" value="0" name="itemDetailsUnitPrice" id="itemDetailsUnitPrice">
@@ -99,9 +98,11 @@
 								  <label for="itemDetailsTotalStock">Total Stok</label>
 								  <input type="text" class="form-control" name="itemDetailsTotalStock" id="itemDetailsTotalStock" readonly>
 								</div>
-								<div class="form-group col-md-3">
-									<div id="imageContainer"></div>
-								</div>
+							  </div>
+							  <div class="form-row">
+								  	<div class="form-group col-md-3">
+										<div id="imageContainer"></div>
+									</div>
 							  </div>
 							  <button type="button" id="addItem" class="btn btn-success">Tambah Item</button>
 							  <button type="button" id="updateItemDetailsButton" class="btn btn-primary">Update</button>
@@ -344,75 +345,6 @@
 						  </div>
 					 </div>
 					  <button type="button" id="addSaleButton" class="btn btn-success">Tambah Penjualan</button>
-					  <button type="button" id="updateSaleDetailsButton" class="btn btn-primary">Update</button>
-					  <button type="reset" id="saleClear" class="btn">Clear</button>
-					</form>
-				  </div> 
-				</div>
-			  </div>
-			  <div class="tab-pane fade" id="v-pills-issue" role="tabpanel" aria-labelledby="v-pills-issue-tab">
-				<div class="card card-outline-secondary my-4">
-				  <div class="card-header">Issue Item</div>
-				  <div class="card-body">
-					<div id="saleDetailsMessage"></div>
-					<form>
-					  <div class="form-row">
-						<div class="form-group col-md-3">
-						  <label for="saleDetailsItemNumber">Kode Item<span class="requiredIcon">*</span></label>
-						  <input type="text" class="form-control" id="saleDetailsItemNumber" name="saleDetailsItemNumber" autocomplete="off">
-						  <div id="saleDetailsItemNumberSuggestionsDiv" class="customListDivWidth"></div>
-						</div>
-						<div class="form-group col-md-3">
-							<label for="saleDetailsCustomerID">Pelanggan ID<span class="requiredIcon">*</span></label>
-							<input type="text" class="form-control" id="saleDetailsCustomerID" name="saleDetailsCustomerID" autocomplete="off">
-							<div id="saleDetailsCustomerIDSuggestionsDiv" class="customListDivWidth"></div>
-						</div>
-						<div class="form-group col-md-4">
-						  <label for="saleDetailsCustomerName">Nama Customer</label>
-						  <input type="text" class="form-control" id="saleDetailsCustomerName" name="saleDetailsCustomerName" readonly>
-						</div>
-						<div class="form-group col-md-2">
-						  <label for="saleDetailsSaleID">Issue ID</label>
-						  <input type="text" class="form-control invTooltip" id="saleDetailsSaleID" name="saleDetailsSaleID" title="This will be auto-generated when you add a new record" autocomplete="off">
-						  <div id="saleDetailsSaleIDSuggestionsDiv" class="customListDivWidth"></div>
-						</div>
-					  </div>
-					  <div class="form-row">
-						  <div class="form-group col-md-5">
-							<label for="saleDetailsItemName">Nama Item</label>
-							<!--<select id="saleDetailsItemNames" name="saleDetailsItemNames" class="form-control chosenSelect"> -->
-								<?php 
-									//require('model/item/getItemDetails.php');
-								?>
-							<!-- </select> -->
-							<input type="text" class="form-control invTooltip" id="saleDetailsItemName" name="saleDetailsItemName" readonly title="This will be auto-filled when you enter the item number above">
-						  </div>
-						  <div class="form-group col-md-3">
-							  <label for="saleDetailsSaleDate">Tanggal Issue<span class="requiredIcon">*</span></label>
-							  <input type="text" class="form-control datepicker" id="saleDetailsSaleDate" value="2018-05-24" name="saleDetailsSaleDate" readonly>
-						  </div>
-					  </div>
-					  <div class="form-row">
-						<div class="form-group col-md-2">
-								  <label for="saleDetailsTotalStock">Total Stok</label>
-								  <input type="text" class="form-control" name="saleDetailsTotalStock" id="saleDetailsTotalStock" readonly>
-								</div>
-						<div class="form-group col-md-2">
-						  <label for="saleDetailsQuantity">Kuantitas<span class="requiredIcon">*</span></label>
-						  <input type="number" class="form-control" id="saleDetailsQuantity" name="saleDetailsQuantity" value="0">
-						</div>
-			
-						<div class="form-group col-md-3">
-						  <label for="saleDetailsTotal">Total</label>
-						  <input type="text" class="form-control" id="saleDetailsTotal" name="saleDetailsTotal">
-						</div>
-					  </div>
-					  <div class="form-row">
-						  <div class="form-group col-md-3">
-							<div id="saleDetailsImageContainer"></div>
-						  </div>
-					 </div>
-					  <button type="button" id="addSaleButton" class="btn btn-success">Tambah Issue Item</button>
 					  <button type="button" id="updateSaleDetailsButton" class="btn btn-primary">Update</button>
 					  <button type="reset" id="saleClear" class="btn">Clear</button>
 					</form>

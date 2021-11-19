@@ -23,6 +23,7 @@
 						<th>Kuantitas</th>
 						<th>Harga Unit</th>
 						<th>Total Harga</th>
+						<th>Aksi</th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -45,6 +46,9 @@
 						'<td>' . $row['quantity'] . '</td>' .
 						'<td>' . $row['unitPrice'] . '</td>' .
 						'<td>' . $totalPrice . '</td>' .
+						'<td>
+							<button class="btn btn-primary btn-sm btn-edit-sale" data-id="'. $row['saleID'] .'">Edit</button>
+						</td>' .
 					'</tr>';
 	}
 	
@@ -63,6 +67,7 @@
 							<th>Kuantitas</th>
 							<th>Harga Unit</th>
 							<th>Total Harga</th>
+							<th>Aksi</th>
 						</tr>
 					</tfoot>
 				</table>';

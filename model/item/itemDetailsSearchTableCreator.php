@@ -17,6 +17,7 @@
 						<th>Harga Unit</th>
 						<th>Status</th>
 						<th>Deskripsi</th>
+						<th>Aksi</th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -33,6 +34,9 @@
 						'<td>' . $row['unitPrice'] . '</td>' .
 						'<td>' . $row['status'] . '</td>' .
 						'<td>' . $row['description'] . '</td>' .
+						'<td>
+							<button class="btn btn-primary btn-sm btn-edit-item" data-number="'. $row['itemNumber'] .'">Edit</button>
+						</td>' .
 					'</tr>';
 	}
 	
@@ -49,6 +53,7 @@
 							<th>Harga Unit</th>
 							<th>Status</th>
 							<th>Deskripsi</th>
+							<th>Aksi</th>
 						</tr>
 					</tfoot>
 				</table>';

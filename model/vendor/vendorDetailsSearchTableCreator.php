@@ -19,6 +19,7 @@
 						<th>Kota</th>
 						<th>Wilayah</th>
 						<th>Status</th>
+						<th>Aksi</th>
 					</tr>
 				</thead>
 				<tbody>';
@@ -36,6 +37,9 @@
 						'<td>' . $row['city'] . '</td>' .
 						'<td>' . $row['district'] . '</td>' .
 						'<td>' . $row['status'] . '</td>' .
+						'<td>
+							<button class="btn btn-primary btn-sm btn-edit-vendor" data-id="'. $row['vendorID'] .'">Edit</button>
+						</td>' .
 					'</tr>';
 	}
 	
@@ -54,6 +58,7 @@
 							<th>Kota</th>
 							<th>Wilayah</th>
 							<th>Status</th>
+							<th>Aksi</th>
 						</tr>
 					</tfoot>
 				</table>';

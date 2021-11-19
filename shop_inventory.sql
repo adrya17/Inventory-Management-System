@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 11, 2021 at 03:13 PM
+-- Generation Time: Nov 19, 2021 at 04:24 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.3.26
 
@@ -71,8 +71,7 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`productID`, `itemNumber`, `itemName`, `discount`, `stock`, `unitPrice`, `imageURL`, `status`, `description`) VALUES
-(1, 'BR001', 'Meja', 0, 10, 400000, '1635575064_toppan_toppan_meja_tulis_kantor_montana_1-2_biro_-_medan_full02.jpg', 'Active', 'Meja kantor'),
-(2, 'BR002', 'Kursi', 0, 10, 150000, 'imageNotAvailable.jpg', 'Active', 'Kursi kantor');
+(1, 'BR001', 'Meja', 0, 10, 200000, 'imageNotAvailable.jpg', 'Active', 'Meja Kantor');
 
 -- --------------------------------------------------------
 
@@ -91,6 +90,13 @@ CREATE TABLE `purchase` (
   `vendorID` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `purchase`
+--
+
+INSERT INTO `purchase` (`purchaseID`, `itemNumber`, `purchaseDate`, `itemName`, `unitPrice`, `quantity`, `vendorName`, `vendorID`) VALUES
+(1, 'BR001', '2018-05-24', 'Meja', 155000, 15, 'Sinar Jaya', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +114,13 @@ CREATE TABLE `sale` (
   `quantity` int(11) NOT NULL DEFAULT '0',
   `unitPrice` float(10,0) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sale`
+--
+
+INSERT INTO `sale` (`saleID`, `itemNumber`, `customerID`, `customerName`, `itemName`, `saleDate`, `discount`, `quantity`, `unitPrice`) VALUES
+(1, 'BR001', 1, 'Kamran', 'Meja', '2018-05-24', 0, 5, 200000);
 
 -- --------------------------------------------------------
 
@@ -213,19 +226,19 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `purchaseID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `purchaseID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sale`
 --
 ALTER TABLE `sale`
-  MODIFY `saleID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `saleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`

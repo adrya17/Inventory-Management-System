@@ -22,16 +22,16 @@
 			// Sanitize item number
 			$itemNumber = filter_var($itemNumber, FILTER_SANITIZE_STRING);
 			
-			// Validate item quantity. It has to be a number
-			if(filter_var($itemDetailsQuantity, FILTER_VALIDATE_INT) === 0 || filter_var($itemDetailsQuantity, FILTER_VALIDATE_INT)){
-				// Valid quantity
-			} else {
-				// Quantity is not a valid number
-				$errorAlert = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button>Harap masukkan nomor yang valid untuk kuantitas</div>';
-				$data = ['alertMessage' => $errorAlert];
-				echo json_encode($data);
-				exit();
-			}
+			// // Validate item quantity. It has to be a number
+			// if(filter_var($itemDetailsQuantity, FILTER_VALIDATE_INT) === 0 || filter_var($itemDetailsQuantity, FILTER_VALIDATE_INT)){
+			// 	// Valid quantity
+			// } else {
+			// 	// Quantity is not a valid number
+			// 	$errorAlert = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert">&times;</button>Harap masukkan nomor yang valid untuk kuantitas</div>';
+			// 	$data = ['alertMessage' => $errorAlert];
+			// 	echo json_encode($data);
+			// 	exit();
+			// }
 			
 			// Validate unit price. It has to be a number or floating point value
 			if(filter_var($itemDetailsUnitPrice, FILTER_VALIDATE_FLOAT) === 0.0 || filter_var($itemDetailsUnitPrice, FILTER_VALIDATE_FLOAT)){
@@ -74,7 +74,8 @@
 			// Construct the UPDATE query
 			$updateItemDetailsSql = 'UPDATE item SET itemName = :itemName, discount = :discount, stock = :stock, unitPrice = :unitPrice, status = :status, description = :description WHERE itemNumber = :itemNumber';
 			$updateItemDetailsStatement = $conn->prepare($updateItemDetailsSql);
-			$updateItemDetailsStatement->execute(['itemName' => $itemName, 'discount' => $discount, 'stock' => $newStock, 'unitPrice' => $itemDetailsUnitPrice, 'status' => $status, 'description' => $description, 'itemNumber' => $itemNumber]);
+			// $updateItemDetailsStatement->execute(['itemName' => $itemName, 'discount' => $discount, 'stock' => $newStock, 'unitPrice' => $itemDetailsUnitPrice, 'status' => $status, 'description' => $description, 'itemNumber' => $itemNumber]);
+			$updateItemDetailsStatement->execute(['itemName' => $itemName, 'discount' => $discount, 'unitPrice' => $itemDetailsUnitPrice, 'status' => $status, 'description' => $description, 'itemNumber' => $itemNumber]);
 			
 			// UPDATE item name in sale table
 			$updateItemInSaleTableSql = 'UPDATE sale SET itemName = :itemName WHERE itemNumber = :itemNumber';

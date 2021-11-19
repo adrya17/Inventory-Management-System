@@ -235,6 +235,12 @@ $(document).ready(function () {
 		}
 	);
 
+	$(document).on("click", ".btn-edit-item", function () {
+		$("#v-pills-item-tab").trigger("click");
+		$("#itemDetailsItemNumber").val($(this).data("number"));
+		getItemDetailsToPopulate();
+	});
+
 	// Listen to item number text box in sale details tab
 	$("#saleDetailsItemNumber").keyup(function () {
 		showSuggestions(
@@ -356,6 +362,12 @@ $(document).ready(function () {
 		}
 	);
 
+	$(document).on("click", ".btn-edit-customer", function () {
+		$("#v-pills-customer-tab").trigger("click");
+		$("#customerDetailsCustomerID").val($(this).data("id"));
+		getCustomerDetailsToPopulate();
+	});
+
 	// Listen to CustomerID text box in sale details tab
 	$("#saleDetailsCustomerID").keyup(function () {
 		showSuggestions(
@@ -398,6 +410,12 @@ $(document).ready(function () {
 		}
 	);
 
+	$(document).on("click", ".btn-edit-vendor", function () {
+		$("#v-pills-vendor-tab").trigger("click");
+		$("#vendorDetailsVendorID").val($(this).data("id"));
+		getVendorDetailsToPopulate();
+	});
+
 	// Listen to PurchaseID text box in purchase details tab
 	$("#purchaseDetailsPurchaseID").keyup(function () {
 		showSuggestions(
@@ -419,6 +437,12 @@ $(document).ready(function () {
 		}
 	);
 
+	$(document).on("click", ".btn-edit-purchase", function () {
+		$("#v-pills-purchase-tab").trigger("click");
+		$("#purchaseDetailsPurchaseID").val($(this).data("id"));
+		getPurchaseDetailsToPopulate();
+	});
+
 	// Listen to saleID text box in sale details tab
 	$("#saleDetailsSaleID").keyup(function () {
 		showSuggestions(
@@ -433,6 +457,12 @@ $(document).ready(function () {
 	$(document).on("click", "#saleDetailsSaleIDSuggestionsList li", function () {
 		$("#saleDetailsSaleID").val($(this).text());
 		$("#saleDetailsSaleIDSuggestionsList").fadeOut();
+		getSaleDetailsToPopulate();
+	});
+
+	$(document).on("click", ".btn-edit-sale", function () {
+		$("#v-pills-sale-tab").trigger("click");
+		$("#saleDetailsSaleID").val($(this).data("id"));
 		getSaleDetailsToPopulate();
 	});
 
